@@ -37,3 +37,5 @@ Lo que va a iniciar un servidor en `localhost:8000`
 ## Observaciones generales
 Considero que la propuesta de base de datos contiene una tabla innecesaria, pues la relación entre las tablas `user` y `role` es una relación M-1, es decir, que la tabla `user` debe contener la llave foránea para el rol que se desee asignar. \
 Estoy consciente que aún me falta mucho camino por recorrer, y con un poco más de background dentro de Laravel, pude haber realizado de la mejor manera esta prueba.
+
+Lamentablemente, no logre hacer una funcionalidad completa, es decir, el proyecto esta bastante roto :').
