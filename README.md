@@ -10,7 +10,9 @@ Una vez clonado, navega dentro de la carpeta y ejecuta el comando:
 ``` bash
 composer install
 ```
-Este comando inicializa el proyecto e instala sus dependencias. Despues cambiar la variable de entorno donde se ubica la base de datos por lo siguiente, (deberas crear un archivo .env en la raiz del proyecto, en caso de que no exista):
+Este comando inicializa el proyecto e instala sus dependencias. 
+
+Despues cambiar la variable de entorno donde se ubica la base de datos por lo siguiente, (deberas crear un archivo .env en la raiz del proyecto, en caso de que no exista):
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -18,6 +20,10 @@ DB_PORT=3306
 DB_DATABASE=gobierno_digital
 DB_USERNAME=root
 DB_PASSWORD=
+```
+Ejecutar el comando:
+``` bash
+php artisan migrate
 ```
 Y aceptar la creación de la base de datos.
 una vez terminado este proceso ejecuta el siguiente comando:
