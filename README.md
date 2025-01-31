@@ -10,7 +10,7 @@ Una vez clonado, navega dentro de la carpeta y ejecuta el comando:
 ``` bash
 composer install
 ```
-Este comando inicializa el proyecto e instala sus dependencias. Despues cambiar la variable de entorno donde se ubica la base de datos por lo siguiente:
+Este comando inicializa el proyecto e instala sus dependencias. Despues cambiar la variable de entorno donde se ubica la base de datos por lo siguiente, (deberas crear un archivo .env en la raiz del proyecto, en caso de que no exista):
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
