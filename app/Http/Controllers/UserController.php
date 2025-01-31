@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
@@ -55,7 +56,8 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id' => $request->role_id
+            'role_id' => $request->role_id,
+            'remember_token' => Str::random(10)
         ]);
         $data = [
             'message' => 'User succesfully created',
@@ -76,9 +78,9 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'max:191',
-            'email' => 'max:191|email|unique:user,email'.$id,
+            'email' => 'max:191|email|unique:user,email,'.$id,
             'password' => 'max:191|min:6',
-            'role_id' => 'max:191'
+            'role_id' => 'numeric'
         ]);
 
         if($validator->fails()) {
@@ -90,14 +92,14 @@ class UserController extends Controller
             return response()->json($data, 400);
         }
 
-        $user = User::create([
+        $user->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => $request->role_id
         ]);
         $data = [
-            'message' => 'User created',
+            'message' => 'User succesfully updated',
             'status' => 201
         ];
         return response()->json($data, 201);
